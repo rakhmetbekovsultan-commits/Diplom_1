@@ -10,22 +10,34 @@ class TestBurger:
         burger.set_buns(mock_bun)
         assert burger.bun == mock_bun
 
-    def test_add_ingredient(self):
+    def test_add_ingredient_length(self):
         burger = Burger()
         mock_ingredient = Mock()
         burger.add_ingredient(mock_ingredient)
         assert len(burger.ingredients) == 1
+
+    def test_add_ingredient_content(self):
+        burger = Burger()
+        mock_ingredient = Mock()
+        burger.add_ingredient(mock_ingredient)
         assert burger.ingredients[0] == mock_ingredient
 
-    def test_remove_ingredient(self):
+    def test_remove_ingredient_length(self):
         burger = Burger()
         mock_ing1 = Mock()
         mock_ing2 = Mock()
         burger.add_ingredient(mock_ing1)
         burger.add_ingredient(mock_ing2)
-        
         burger.remove_ingredient(0)
         assert len(burger.ingredients) == 1
+
+    def test_remove_ingredient_content(self):
+        burger = Burger()
+        mock_ing1 = Mock()
+        mock_ing2 = Mock()
+        burger.add_ingredient(mock_ing1)
+        burger.add_ingredient(mock_ing2)
+        burger.remove_ingredient(0)
         assert burger.ingredients[0] == mock_ing2
 
     def test_move_ingredient(self):
